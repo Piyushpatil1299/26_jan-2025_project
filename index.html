@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26 Jan 2025 Project</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #008000, #ffffff, #ff9933);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-weight: bolder;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .flag-container {
+      display: none;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .happy-text {
+      font-size: 8rem;
+      font-weight: bolder;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-align: center;
+      margin-bottom: 35px; /* Added gap between text and flag */
+      animation: colorChange 3s infinite;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    @keyframes colorChange {
+      0% { color: #FF4500; }  /* Dark Orange */
+      33% { color: #efebeb; } /* Dark White/Grey */
+      66% { color: #006400; } /* Dark Green */
+      100% { color: #FF4500; }
+    }
+
+    .flag {
+      width: 800px;
+      margin: 0 auto;
+      position: relative;
+      animation: wave 2s infinite linear;
+    }
+
+    .orange, .white, .green {
+      width: 100%;
+      height: 150px;
+    }
+
+    .orange {
+      background-color: #FF9933;
+    }
+
+    .white {
+      background-color: #FFFFFF;
+      position: relative;
+    }
+
+    .green {
+      background-color: #128807;
+    }
+
+    .ashoka-chakra {
+      width: 120px;
+      height: 120px;
+      border: 3px solid #000080;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: spin 4s linear infinite;
+    }
+
+    .ashoka-chakra .line {
+      position: absolute;
+      width: 3px;
+      height: 120px;
+      background: #000080;
+      top: 0;
+      left: 50%;
+      transform-origin: center;
+    }
+
+    .ashoka-chakra .line:nth-child(1) { transform: rotate(0deg); }
+    .ashoka-chakra .line:nth-child(2) { transform: rotate(15deg); }
+    .ashoka-chakra .line:nth-child(3) { transform: rotate(30deg); }
+    .ashoka-chakra .line:nth-child(4) { transform: rotate(45deg); }
+    .ashoka-chakra .line:nth-child(5) { transform: rotate(60deg); }
+    .ashoka-chakra .line:nth-child(6) { transform: rotate(75deg); }
+    .ashoka-chakra .line:nth-child(7) { transform: rotate(90deg); }
+    .ashoka-chakra .line:nth-child(8) { transform: rotate(105deg); }
+    .ashoka-chakra .line:nth-child(9) { transform: rotate(120deg); }
+    .ashoka-chakra .line:nth-child(10) { transform: rotate(135deg); }
+    .ashoka-chakra .line:nth-child(11) { transform: rotate(150deg); }
+    .ashoka-chakra .line:nth-child(12) { transform: rotate(165deg); }
+    .ashoka-chakra .line:nth-child(13) { transform: rotate(180deg); }
+    .ashoka-chakra .line:nth-child(14) { transform: rotate(195deg); }
+    .ashoka-chakra .line:nth-child(15) { transform: rotate(210deg); }
+    .ashoka-chakra .line:nth-child(16) { transform: rotate(225deg); }
+    .ashoka-chakra .line:nth-child(17) { transform: rotate(240deg); }
+    .ashoka-chakra .line:nth-child(18) { transform: rotate(255deg); }
+    .ashoka-chakra .line:nth-child(19) { transform: rotate(270deg); }
+    .ashoka-chakra .line:nth-child(20) { transform: rotate(285deg); }
+    .ashoka-chakra .line:nth-child(21) { transform: rotate(300deg); }
+    .ashoka-chakra .line:nth-child(22) { transform: rotate(315deg); }
+    .ashoka-chakra .line:nth-child(23) { transform: rotate(330deg); }
+    .ashoka-chakra .line:nth-child(24) { transform: rotate(345deg); }
+
+    /* Animation Keyframes */
+    @keyframes spin {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      100% {
+        transform: translateX(-50%) rotate(360deg);
+      }
+    }
+
+    @keyframes wave {
+      0% {
+        transform: flex(0deg);
+      }
+      25% {
+        transform: flex(5deg);
+      }
+      50% {
+        transform: flex(0deg);
+      }
+      75% {
+        transform: flex(-5deg);
+      }
+      100% {
+        transform: flex(0deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .footer-text {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: #f3eded;
+      font-family: 'Pacifico', cursive;
+    }
+  </style>
+</head>
+<body>
+  <button id="startButton" onclick="showFlag()">CLICK</button>
+  <div class="flag-container" id="flagContainer">
+    <div class="happy-text">HAPPY REPUBLIC DAY</div>
+    <div class="flag">
+      <div class="orange"></div>
+      <div class="white">
+        <div class="ashoka-chakra">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="green"></div>
+    </div>
+  </div>
+
+  <div class="footer-text">- From Piyush Patil</div>
+
+  <script>
+    function showFlag() {
+      const flagContainer = document.getElementById('flagContainer');
+      const startButton = document.getElementById('startButton');
+      
+      flagContainer.style.display = 'block'; // Show the flag
+      startButton.style.display = 'none'; // Remove the button completely
+    }
+  </script>
+</body>
+</html>
